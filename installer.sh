@@ -2,8 +2,10 @@
 set -euo pipefail
 
 sudo apt update -y
-sudo apt install -y nodejs npm
+sudo apt install -y nodejs npm screen
+
+sudo ufw allow 8443
 
 npm i
 
-node proxy.js
+screen -S proxy -dm node proxy.js
